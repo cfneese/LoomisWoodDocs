@@ -1,46 +1,47 @@
-﻿# Loomis-Wood Add-In Tutorial
+﻿
+# Loomis-Wood Add-In Tutorial
 
 0.  Install Igor Pro or the Igor Pro demo (<http://www.wavemetrics.com).
-  If you are new to Igor, read “Volume I:  Getting Started” of the Igor manual.
+    If you are new to Igor, read “Volume I:  Getting Started” of the Igor manual.
 
 1.  Copy the "LoomisWood.ipf" procedure file to the "User Procedures" subfolder of the IGOR program folder.
-  The path for the "User Procedures" folder is typically "C:\Program Files\WaveMetrics\Igor Pro Folder\User Procedures" for a Windows PC.
+    The path for the "User Procedures" folder is typically "C:\Program Files\WaveMetrics\Igor Pro Folder\User Procedures" for a Windows PC.
 
-  ![](image001.jpg)
+    ![](image001.jpg)
 
 2.  Open the sample experiment, "ethylene-lw.pxp", in Igor.
-  The sample experiment contains a spectrum an line-listing of ethylene taken from the HITRAN database.
+    The sample experiment contains a spectrum an line-listing of ethylene taken from the HITRAN database.
 
-  ![](image002.jpg)
+    ![](image002.jpg)
 
 3.  Open the procedure window of your IGOR experiment.  (Press Ctrl-M.)
-  Add the line
-  ```
-  #include "LoomisWood"
-  ```
-  to the top of the procedure window.
+    Add the line
+    ```
+    #include "LoomisWood"
+    ```
+    to the top of the procedure window.
 
-  ![](image003.jpg)
+    ![](image003.jpg)
 
-  Close the procedure window.
-  This will create the **Loomis-Wood** menu and make available all of the procedures associated with this add-in.
+    Close the procedure window.
+    This will create the **Loomis-Wood** menu and make available all of the procedures associated with this add-in.
 
 4.  Create a Loomis-Wood data set by selecting **Loomis-Wood | Data Sets | Create a New Loomis-Wood Data Set...**.
 
-  ![](image004.jpg)
+    ![](image004.jpg)
 
-  A dialog box will ask you for the name of the new folder:
+    A dialog box will ask you for the name of the new folder:
 
-  ![](image005.jpg)
+    ![](image005.jpg)
 
-  Enter “ethylene” then press continue.
-  A second dialog box will ask you to select the waves of your line listing.
-  Choose "Ref_Nu", "Ref_I", and "_constant_" in this dialog.
+    Enter “ethylene” then press continue.
+    A second dialog box will ask you to select the waves of your line listing.
+    Choose "Ref_Nu", "Ref_I", and "_constant_" in this dialog.
 
-  ![](image006.jpg)
+    ![](image006.jpg)
 
-  You can choose \_constant\_ if you do not have waves with line widths and/or line intensities.
-  You can work with multiple data sets in the same Igor Experiment by creating multiple Loomis-Wood folders.
+    You can choose \_constant\_ if you do not have waves with line widths and/or line intensities.
+    You can work with multiple data sets in the same Igor Experiment by creating multiple Loomis-Wood folders.
 
 5.  A Loomis-Wood plot named "Plot0" will be created automatically.
 
