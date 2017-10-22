@@ -1,24 +1,29 @@
 ﻿# Loomis-Wood Add-In Tutorial
 
-0.  Install Igor Pro or the Igor Pro demo (<http://www.wavemetrics.com).  If you are new to Igor, read “Volume I:  Getting Started” of the Igor manual.
+0.  Install Igor Pro or the Igor Pro demo (<http://www.wavemetrics.com).
+If you are new to Igor, read “Volume I:  Getting Started” of the Igor manual.
 
-1.  Copy the "LoomisWood.ipf" procedure file to the "User Procedures" subfolder of the IGOR program folder.  The path for the "User Procedures" folder is typically "C:\Program Files\WaveMetrics\Igor Pro Folder\User Procedures" for a Windows PC.
+1.  Copy the "LoomisWood.ipf" procedure file to the "User Procedures" subfolder of the IGOR program folder.
+The path for the "User Procedures" folder is typically "C:\Program Files\WaveMetrics\Igor Pro Folder\User Procedures" for a Windows PC.
 
-![](image001.jpg)
+  ![](image001.jpg)
 
-2.  Open the sample experiment, "ethylene-lw.pxp", in Igor.  The sample experiment contains a spectrum an line-listing of ethylene taken from the HITRAN database.
+2.  Open the sample experiment, "ethylene-lw.pxp", in Igor.
+The sample experiment contains a spectrum an line-listing of ethylene taken from the HITRAN database.
 
-![](image002.jpg)
+  ![](image002.jpg)
 
-3.  Open the procedure window of your IGOR experiment.  (Press Ctrl-M.)  Add the line
+3.  Open the procedure window of your IGOR experiment.  (Press Ctrl-M.)
+Add the line
 ```
 #include "LoomisWood"
 ```
 to the top of the procedure window.
 
-![](image003.jpg)
+  ![](image003.jpg)
 
-Close the procedure window.  This will create the **Loomis-Wood** menu and make available all of the procedures associated with this add-in.
+  Close the procedure window.
+  This will create the **Loomis-Wood** menu and make available all of the procedures associated with this add-in.
 
 4.  Create a Loomis-Wood data set by selecting **Loomis-Wood | Data Sets | Create a New Loomis-Wood Data Set...**.
 
@@ -28,16 +33,18 @@ A dialog box will ask you for the name of the new folder:
 
 ![](image005.jpg)
 
-Enter “ethylene” then press continue.  A second dialog box will ask you to select the waves of your line listing.  Choose “Ref_Nu”, “Ref_I”, and “_constant_” in this dialog.
+Enter “ethylene” then press continue.
+A second dialog box will ask you to select the waves of your line listing.
+Choose "Ref_Nu", "Ref_I", and "_constant_" in this dialog.
 
 ![](image006.jpg)
 
-You can choose \_constant\_ if you do not have waves with line widths and/or line intensities.  You can work with multiple data sets in the same Igor Experiment by creating multiple Loomis-Wood folders.
+You can choose \_constant\_ if you do not have waves with line widths and/or line intensities.
+You can work with multiple data sets in the same Igor Experiment by creating multiple Loomis-Wood folders.
 
 5.  A Loomis-Wood plot named "Plot0" will be created automatically.
 
 ![](image007.jpg)
-
 
 You can create multiple Loomis-Wood plots for the same
 Loomis-Wood folder by selecting **Loomis-Wood | Plots | Create a New
@@ -45,60 +52,42 @@ Loomis-Wood Plot...**  A dialog box will ask you for the Loomis-Wood folder
 containing the data for the plot, and a name for the subfolder that will
 contain data specific to the new Loomis-Wood plot.
 
+6.  In the new plot you will see the lines from your data set represented as triangles.
+The height and width of these shapes will reflect the relative line intensities and the line widths of your data set. 
+There is a cursor that you can move from line to line using the arrow keys.
+If you click on a single line, the cursor will jump to that line.
+At the top of the plot the details of the currently selected line are displayed.
+You can use the PageUp and PageDn keys to scroll the plot up or down to the region of interest.
 
-6.         In the new plot you will see the lines from your
-data set represented as triangles.  The height and width of these shapes will
-reflect the relative line intensities and the line widths of your data set. 
-There is a cursor that you can move from line to line using the arrow keys.  If
-you click on a single line, the cursor will jump to that line. At the top of
-the plot the details of the currently selected line are displayed.  You can use
-the PageUp and PageDn keys to scroll the plot up or down to the region of
-interest.
+7.  Now, we need to find some constants that will make the display meaningful.
+Switch to the graph of the spectrum by choosing **Windows | Graphs | Graph0:Spectrum** from the menu.
 
-
-7.         Now, we need to find some constants that will make
-the display meaningful.  Switch to the graph of the spectrum by choosing **Windows
-| Graphs | Graph0:Spectrum** from the menu.
-
-<p class=Figure><img border=0 width=512 height=364
-src="image008.jpg">
-
+![](image008.jpg)
 
 The graph of the spectrum will come to the top.  There are
 some obvious series starting around 3145 cm<sup>-1</sup>.  Zoom in on this
 region by creating a marquee with the mouse:
 
-<p class=Figure><img border=0 width=512 height=364
-src="image009.jpg">
-
+![](image009.jpg)
 
 Right click on the marquee and choose Horiz Expand to zoom in
 on this region.  Show Igor’s cursors by selecting **Graph | Show Info** from
 the menu.
 
-<p class=Figure><img border=0 width=512 height=364
-src="image010.jpg">
-
+![](image010.jpg)
 
 Now drag the cursors onto the first two lines of one of the
 series (as shown below) so that you can estimate 2 _B_.
 
-<p class=Figure><img border=0 width=512 height=364
-src="image011.jpg">
+![](image011.jpg)
 
+Notice that in the bottom of the window, dX is given as about 1.8.
+We will take _B_ to be 0.9 cm<sup>-1</sup> and will use 3149 cm<sup>-1</sup> as a band origin.
 
-Notice that in the bottom of the window, dX is given as about
-1.8.  We will take _B_ to be 0.9 cm<sup>-1</sup> and will use 3149 cm<sup>-1</sup>
-as a band origin.
+8.  The next step is to edit the band constants to make the Loomis-Wood plot match a series in the spectrum.
+Do this by choosing **Loomis-Wood | Plots | Edit Band Constants...**.
 
-
-8.         The next step is to edit the band constants to make
-the Loomis-Wood plot match a series in the spectrum.  Do this by choosing Loomis-Wood
-| Plots | Edit Band Constants....
-
-<p class=Figure><img border=0 width=512 height=364
-src="image012.jpg">
-
+![](image012.jpg)
 
 Even if you do not have precise constants for your molecule,
 you will need to provide initial guesses for the band origin and rotational
