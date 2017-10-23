@@ -1,4 +1,4 @@
-﻿---
+---
 use_math: true
 comments: true
 title:  "Adding MathJax to a GitHub Pages Jekyll Blog"
